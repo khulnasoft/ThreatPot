@@ -1,4 +1,4 @@
-# Threat Pot
+# ThreatPot
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/Threatpot)](https://github.com/khulnasoft/Threatpot/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/Threatpot?style=social)](https://github.com/khulnasoft/Threatpot/stargazers)
 [![Twitter Follow](https://img.shields.io/twitter/follow/khulnasoft?style=social)](https://twitter.com/khulnasoft)
