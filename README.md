@@ -1,6 +1,4 @@
-<p align="center"><img src="docs/static/threatpot.png" width=350 height=404 alt="ThreatPot"/></p>
-
-# ThreatPot
+# Threat Pot
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khulnasoft/Threatpot)](https://github.com/khulnasoft/Threatpot/releases)
 [![GitHub Repo stars](https://img.shields.io/github/stars/khulnasoft/Threatpot?style=social)](https://github.com/khulnasoft/Threatpot/stargazers)
 [![Twitter Follow](https://img.shields.io/twitter/follow/khulnasoft?style=social)](https://twitter.com/khulnasoft)
@@ -12,12 +10,13 @@
 [![CodeQL](https://github.com/khulnasoft/ThreatPot/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/khulnasoft/ThreatPot/actions/workflows/codeql-analysis.yml)
 [![Dependency Review](https://github.com/khulnasoft/ThreatPot/actions/workflows/dependency_review.yml/badge.svg)](https://github.com/khulnasoft/ThreatPot/actions/workflows/dependency_review.yml)
 [![Pull request automation](https://github.com/khulnasoft/ThreatPot/actions/workflows/pull_request_automation.yml/badge.svg)](https://github.com/khulnasoft/ThreatPot/actions/workflows/pull_request_automation.yml)
+[![Documentation Status](https://readthedocs.org/projects/threatpot/badge/?version=latest)](https://threatpot.readthedocs.io/en/latest/?badge=latest)
 
 The project goal is to extract data of the attacks detected by a [TPOT](https://github.com/telekom-security/tpotce) or a cluster of them and to generate some feeds that can be used to prevent and detect attacks.
 
 [Official announcement here](https://www.honeynet.org/2021/12/27/new-project-available-threatpot/).
 
-## Documentation [![Documentation Status](https://readthedocs.org/projects/threatpot/badge/?version=latest)](https://threatpot.readthedocs.io/en/latest/?badge=latest)
+## Documentation
 
 Documentation about ThreatPot installation, usage, configuration and contribution can be found at https://threatpot.readthedocs.io/.
 
@@ -54,7 +53,7 @@ To install it locally, Please refer to our [installation guide](https://threatpo
 
 [Certego](https://www.certego.net/?utm_source=threatpot) is a MDR (Managed Detection and Response) and Threat Intelligence Provider based in Italy.
 
-Started as a personal Christmas project from [Matteo Lodi](https://twitter.com/matte_lodi), since then ThreatPot is being improved mainly thanks to the efforts of the Certego Threat Intelligence Team.
+Started as a personal Christmas project from [Matteo Lodi](https://twitter.com/khulnasoft), since then ThreatPot is being improved mainly thanks to the efforts of the Certego Threat Intelligence Team.
 
 #### The Honeynet Project
 
