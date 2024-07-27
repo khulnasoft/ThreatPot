@@ -14,11 +14,19 @@ from threatpot.consts import GET
 from threatpot.enums import FrontendPage
 from threatpot.settings import AUTH_USER_MODEL
 from rest_framework import status
-from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.decorators import (
+    api_view,
+    authentication_classes,
+    permission_classes,
+)
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from .serializers import EmailVerificationSerializer, LoginSerializer, RegistrationSerializer
+from .serializers import (
+    EmailVerificationSerializer,
+    LoginSerializer,
+    RegistrationSerializer,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +35,9 @@ logger = logging.getLogger(__name__)
 User: AUTH_USER_MODEL = get_user_model()
 
 
-class PasswordResetRequestView(rest_email_auth.views.PasswordResetRequestView, RecaptchaV2Mixin):
+class PasswordResetRequestView(
+    rest_email_auth.views.PasswordResetRequestView, RecaptchaV2Mixin
+):
     authentication_classes: List = []
     permission_classes: List = []
     throttle_classes: List = [POSTUserRateThrottle]
@@ -53,7 +63,9 @@ class RegistrationView(rest_email_auth.views.RegistrationView, RecaptchaV2Mixin)
     serializer_class = RegistrationSerializer
 
 
-class ResendVerificationView(rest_email_auth.views.ResendVerificationView, RecaptchaV2Mixin):
+class ResendVerificationView(
+    rest_email_auth.views.ResendVerificationView, RecaptchaV2Mixin
+):
     authentication_classes: List = []
     permission_classes: List = []
     throttle_classes: List = [POSTUserRateThrottle]
@@ -64,7 +76,9 @@ class ResendVerificationView(rest_email_auth.views.ResendVerificationView, Recap
 @permission_classes([IsAuthenticated])
 def checkAuthentication(request):
     logger.info(f"User: {request.user}, Administrator: {request.user.is_superuser}")
-    return Response({"is_superuser": request.user.is_superuser}, status=status.HTTP_200_OK)
+    return Response(
+        {"is_superuser": request.user.is_superuser}, status=status.HTTP_200_OK
+    )
 
 
 @api_view([GET])
@@ -88,7 +102,12 @@ def checkConfiguration(request):
                     errors["AWS SES backend"] = "configuration required"
             else:
                 # SMTP backend
-                required_variables = [settings.EMAIL_HOST, settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD, settings.EMAIL_PORT]
+                required_variables = [
+                    settings.EMAIL_HOST,
+                    settings.EMAIL_HOST_USER,
+                    settings.EMAIL_HOST_PASSWORD,
+                    settings.EMAIL_PORT,
+                ]
                 for variable in required_variables:
                     if not variable:
                         errors["SMTP backend"] = "configuration required"

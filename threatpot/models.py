@@ -43,7 +43,9 @@ class IOC(models.Model):
     scanner = models.BooleanField(blank=False, default=False)
     payload_request = models.BooleanField(blank=False, default=False)
     related_ioc = models.ManyToManyField("self", blank=True, symmetrical=True)
-    related_urls = pg_fields.ArrayField(models.CharField(max_length=900, blank=True), blank=True, default=list)
+    related_urls = pg_fields.ArrayField(
+        models.CharField(max_length=900, blank=True), blank=True, default=list
+    )
 
     def __str__(self):
         return self.name

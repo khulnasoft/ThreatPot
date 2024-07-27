@@ -32,7 +32,9 @@ ELASTIC_ENDPOINT = os.getenv("ELASTIC_ENDPOINT", "")
 if ELASTIC_ENDPOINT:
     ELASTIC_ENDPOINT = ELASTIC_ENDPOINT.split(",")
 else:
-    print("WARNING!!! You need an ElasticSearch TPOT instance to have the Threatpot to work correctly.")
+    print(
+        "WARNING!!! You need an ElasticSearch TPOT instance to have the Threatpot to work correctly."
+    )
     if not DEBUG:
         print("you are in production mode: closing the application")
         exit(9)
@@ -59,7 +61,9 @@ SPECTACULAR_SETTINGS = {
 
 # drf-recaptcha
 DRF_RECAPTCHA_SECRET_KEY = (
-    str(os.environ.get("RECAPTCHA_SECRET_KEY_GB_PUBLIC")) if PUBLIC_DEPLOYMENT and not DEBUG else str(os.environ.get("RECAPTCHA_SECRET_KEY_GB_LOCAL"))
+    str(os.environ.get("RECAPTCHA_SECRET_KEY_GB_PUBLIC"))
+    if PUBLIC_DEPLOYMENT and not DEBUG
+    else str(os.environ.get("RECAPTCHA_SECRET_KEY_GB_LOCAL"))
 )
 # this is necessary to avoid to have the related Django app to yell
 # and to have this populated also for people who upgraded from previous versions
@@ -110,7 +114,9 @@ REST_FRAMEWORK = {
     # Exception Handling
     "EXCEPTION_HANDLER": "certego_saas.ext.exceptions.custom_exception_handler",
     # Auth
-    "DEFAULT_AUTHENTICATION_CLASSES": ["certego_saas.apps.auth.backend.CookieTokenAuthentication"],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "certego_saas.apps.auth.backend.CookieTokenAuthentication"
+    ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     # Pagination
     "DEFAULT_PAGINATION_CLASS": "certego_saas.ext.pagination.CustomPageNumberPagination",

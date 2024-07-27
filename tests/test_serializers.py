@@ -27,16 +27,28 @@ class FeedsSerializersTestCase(TestCase):
         age_choices = ["recent", "persistent"]
         format_choices = ["txt", "json", "csv"]
         # genereted all the possible valid input data using cartesian product
-        valid_data_choices = product(feed_type_choices, attack_type_choices, age_choices, format_choices)
+        valid_data_choices = product(
+            feed_type_choices, attack_type_choices, age_choices, format_choices
+        )
 
         for element in valid_data_choices:
-            data_ = {"feed_type": element[0], "attack_type": element[1], "age": element[2], "format": element[3]}
+            data_ = {
+                "feed_type": element[0],
+                "attack_type": element[1],
+                "age": element[2],
+                "format": element[3],
+            }
             serializer = FeedsSerializer(data=data_)
             valid = serializer.is_valid(raise_exception=True)
             self.assertEqual(valid, True)
 
     def test_invalid_fields(self):
-        data_ = {"feed_type": "invalid_feed_type", "attack_type": "invalid_attack_type", "age": "invalid_age", "format": "invalid_format"}
+        data_ = {
+            "feed_type": "invalid_feed_type",
+            "attack_type": "invalid_attack_type",
+            "age": "invalid_age",
+            "format": "invalid_format",
+        }
         serializer = FeedsSerializer(data=data_)
         try:
             serializer.is_valid(raise_exception=True)
@@ -66,7 +78,9 @@ class FeedsResponseSerializersTestCase(TestCase):
         feed_type_choices = ["all", "log4j", "cowrie", "adbhoney"]
 
         # generete all possible valid input data using cartesian product
-        valid_data_choices = product(scanner_choices, payload_request_choices, feed_type_choices)
+        valid_data_choices = product(
+            scanner_choices, payload_request_choices, feed_type_choices
+        )
 
         for element in valid_data_choices:
             data_ = {

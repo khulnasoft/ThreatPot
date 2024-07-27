@@ -77,7 +77,11 @@ class UserAdminView(AbstractUserAdmin):
     def accept_users(self, request, queryset):
         # 1. user email should be verified
         # 2. we can accept previously declined users
-        acceptable = Q(email_address__is_verified=True) & Q(is_active=False) & (Q(approved=False) | Q(approved=None))
+        acceptable = (
+            Q(email_address__is_verified=True)
+            & Q(is_active=False)
+            & (Q(approved=False) | Q(approved=None))
+        )
         users = queryset.filter(acceptable).all()
         for user in users:
             email_utils.send_email(
@@ -161,7 +165,9 @@ class CustomAuthTokenAdmin(AuthTokenAdmin):
         return False
 
     def save_model(self, request, obj, form, change):
-        obj.client = Client.objects.get(name=settings.REST_DURIN["API_ACCESS_CLIENT_NAME"])
+        obj.client = Client.objects.get(
+            name=settings.REST_DURIN["API_ACCESS_CLIENT_NAME"]
+        )
         super().save_model(request, obj, form, change)
 
 
