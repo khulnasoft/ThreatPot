@@ -1,4 +1,4 @@
-# This file is a part of ThreatPot https://github.com/honeynet/ThreatPot
+# This file is a part of ThreatPot https://github.com/khulnasoft/ThreatPot
 # See the file 'LICENSE' for copying permission.
 REGEX_CVE_URL = r"//[a-zA-Z\d_-]{1,200}(?:\.[a-zA-Z\d_-]{1,200})+(?::\d{2,6})?(?:/[a-zA-Z\d_=-]{1,200})*(?:\.\w+)?"
 REGEX_CVE_BASE64COMMAND = r"/Command/Base64/((?:[a-zA-Z\+\/\d]+)(?:={0,3}))}"

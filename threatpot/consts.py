@@ -1,4 +1,4 @@
-# This file is a part of ThreatPot https://github.com/honeynet/ThreatPot
+# This file is a part of ThreatPot https://github.com/khulnasoft/ThreatPot
 # See the file 'LICENSE' for copying permission.
 SCANNER = "scanner"
 PAYLOAD_REQUEST = "payload_request"
@@ -6,7 +6,7 @@ PAYLOAD_REQUEST = "payload_request"
 GET = "GET"
 POST = "POST"
 
-FEEDS_LICENSE = "https://github.com/honeynet/ThreatPot/blob/main/FEEDS_LICENSE.md"
+FEEDS_LICENSE = "https://github.com/khulnasoft/ThreatPot/blob/main/FEEDS_LICENSE.md"
 
 REGEX_DOMAIN = r"^[a-zA-Z\d-]{1,60}(\.[a-zA-Z\d-]{1,60})*$"
 REGEX_IP = r"^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$"
