@@ -1,4 +1,4 @@
-# This file is a part of ThreatPot https://github.com/honeynet/ThreatPot
+# This file is a part of ThreatPot https://github.com/khulnasoft/ThreatPot
 # See the file 'LICENSE' for copying permission.
 from datetime import datetime, timedelta
 from os.path import getmtime

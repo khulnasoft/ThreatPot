@@ -20,7 +20,7 @@ Documentation about ThreatPot installation, usage, configuration and contributio
 
 ## Public feeds
 
-There are public feeds provided by [The Honeynet Project](https://www.honeynet.org) in this [site](https://threatpot.honeynet.org). [Example](https://threatpot.honeynet.org/api/feeds/log4j/all/recent.txt)
+There are public feeds provided by [The Honeynet Project](https://www.honeynet.org) in this [site](https://threatpot.khulnasoft.com). [Example](https://threatpot.khulnasoft.com/api/feeds/log4j/all/recent.txt)
 
 Please do not perform too many requests to extract feeds or you will be banned.
 
