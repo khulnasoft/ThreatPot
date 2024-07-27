@@ -3,7 +3,7 @@
 Start by cloning the project
 ```bash
 # clone the Threatpot project repository
-git clone https://github.com/honeynet/ThreatPot
+git clone https://github.com/khulnasoft/ThreatPot
 cd ThreatPot/
 
 # construct environment files from templates
