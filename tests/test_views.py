@@ -37,22 +37,14 @@ class EnrichmentViewTestCase(CustomTestCase):
             response.json()["ioc"]["last_seen"],
             self.ioc.last_seen.isoformat(sep="T", timespec="microseconds"),
         )
-        self.assertEqual(
-            response.json()["ioc"]["number_of_days_seen"], self.ioc.number_of_days_seen
-        )
+        self.assertEqual(response.json()["ioc"]["number_of_days_seen"], self.ioc.number_of_days_seen)
         self.assertEqual(response.json()["ioc"]["times_seen"], self.ioc.times_seen)
         self.assertEqual(response.json()["ioc"]["log4j"], self.ioc.log4j)
         self.assertEqual(response.json()["ioc"]["cowrie"], self.ioc.cowrie)
-        self.assertEqual(
-            response.json()["ioc"]["general_honeypot"][0], self.heralding.name
-        )  # FEEDS
-        self.assertEqual(
-            response.json()["ioc"]["general_honeypot"][1], self.ciscoasa.name
-        )  # FEEDS
+        self.assertEqual(response.json()["ioc"]["general_honeypot"][0], self.heralding.name)  # FEEDS
+        self.assertEqual(response.json()["ioc"]["general_honeypot"][1], self.ciscoasa.name)  # FEEDS
         self.assertEqual(response.json()["ioc"]["scanner"], self.ioc.scanner)
-        self.assertEqual(
-            response.json()["ioc"]["payload_request"], self.ioc.payload_request
-        )
+        self.assertEqual(response.json()["ioc"]["payload_request"], self.ioc.payload_request)
 
     def test_for_invalid_authentication(self):
         """Check for a invalid authentication"""
@@ -85,17 +77,13 @@ class FeedsViewTestCase(CustomTestCase):
         self.assertEqual(response.status_code, 400)
 
     def test_200_feeds_pagination(self):
-        response = self.client.get(
-            "/api/feeds/?page_size=10&page=1&feed_type=all&attack_type=all&age=recent"
-        )
+        response = self.client.get("/api/feeds/?page_size=10&page=1&feed_type=all&attack_type=all&age=recent")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["count"], 1)
         self.assertEqual(response.json()["total_pages"], 1)
 
     def test_400_feeds_pagination(self):
-        response = self.client.get(
-            "/api/feeds/?page_size=10&page=1&feed_type=all&attack_type=test&age=recent"
-        )
+        response = self.client.get("/api/feeds/?page_size=10&page=1&feed_type=all&attack_type=test&age=recent")
         self.assertEqual(response.status_code, 400)
 
 
@@ -104,12 +92,8 @@ class StatisticsViewTestCase(CustomTestCase):
     def setUpClass(self):
         super(StatisticsViewTestCase, self).setUpClass()
         Statistics.objects.all().delete()
-        Statistics.objects.create(
-            source="140.246.171.141", view=viewType.FEEDS_VIEW.value
-        )
-        Statistics.objects.create(
-            source="140.246.171.141", view=viewType.ENRICHMENT_VIEW.value
-        )
+        Statistics.objects.create(source="140.246.171.141", view=viewType.FEEDS_VIEW.value)
+        Statistics.objects.create(source="140.246.171.141", view=viewType.ENRICHMENT_VIEW.value)
 
     @classmethod
     def tearDownClass(self):

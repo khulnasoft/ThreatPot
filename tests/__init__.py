@@ -36,9 +36,7 @@ class CustomTestCase(TestCase):
         try:
             cls.superuser = User.objects.get(is_superuser=True)
         except User.DoesNotExist:
-            cls.superuser = User.objects.create_superuser(
-                username="test", email="test@threatpot.com", password="test"
-            )
+            cls.superuser = User.objects.create_superuser(username="test", email="test@threatpot.com", password="test")
 
     @classmethod
     def tearDownClass(self):

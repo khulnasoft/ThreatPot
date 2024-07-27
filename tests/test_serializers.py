@@ -27,9 +27,7 @@ class FeedsSerializersTestCase(TestCase):
         age_choices = ["recent", "persistent"]
         format_choices = ["txt", "json", "csv"]
         # genereted all the possible valid input data using cartesian product
-        valid_data_choices = product(
-            feed_type_choices, attack_type_choices, age_choices, format_choices
-        )
+        valid_data_choices = product(feed_type_choices, attack_type_choices, age_choices, format_choices)
 
         for element in valid_data_choices:
             data_ = {
@@ -78,9 +76,7 @@ class FeedsResponseSerializersTestCase(TestCase):
         feed_type_choices = ["all", "log4j", "cowrie", "adbhoney"]
 
         # generete all possible valid input data using cartesian product
-        valid_data_choices = product(
-            scanner_choices, payload_request_choices, feed_type_choices
-        )
+        valid_data_choices = product(scanner_choices, payload_request_choices, feed_type_choices)
 
         for element in valid_data_choices:
             data_ = {
