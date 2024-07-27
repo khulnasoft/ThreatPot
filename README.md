@@ -14,8 +14,6 @@
 
 The project goal is to extract data of the attacks detected by a [TPOT](https://github.com/telekom-security/tpotce) or a cluster of them and to generate some feeds that can be used to prevent and detect attacks.
 
-[Official announcement here](https://www.honeynet.org/2021/12/27/new-project-available-threatpot/).
-
 ## Documentation
 
 Documentation about ThreatPot installation, usage, configuration and contribution can be found at https://threatpot.readthedocs.io/.
@@ -44,16 +42,6 @@ If you manage one or more T-POTs of your own, you can get the code of this appli
 In this way, you are able to provide new feeds of your own.
 
 To install it locally, Please refer to our [installation guide](https://threatpot.readthedocs.io/en/latest/Installation.html)
-
-## Sponsors
-
-#### Certego
-
-<a href="https://www.certego.net/?utm_source=threatpot"> <img style="margin-right: 2px" width=250 height=71 src="docs/static/Certego.png" alt="Certego Logo"/></a>
-
-[Certego](https://www.certego.net/?utm_source=threatpot) is a MDR (Managed Detection and Response) and Threat Intelligence Provider based in Italy.
-
-Started as a personal Christmas project from [Matteo Lodi](https://twitter.com/khulnasoft), since then ThreatPot is being improved mainly thanks to the efforts of the Certego Threat Intelligence Team.
 
 #### The Honeynet Project
 
