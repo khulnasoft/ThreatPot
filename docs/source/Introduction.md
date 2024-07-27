@@ -6,7 +6,7 @@ The project goal is to extract data of the attacks detected by a [TPOT](https://
 
 ## Public feeds
 
-There are public feeds provided by The Honeynet Project in this site: threatpot.honeynet.org. [Example](https://threatpot.honeynet.org/api/feeds/log4j/all/recent.txt)
+There are public feeds provided by The Honeynet Project in this site: threatpot.khulnasoft.com. [Example](https://threatpot.khulnasoft.com/api/feeds/log4j/all/recent.txt)
 
 To check all the available feeds, Please refer to our [usage guide](https://threatpot.readthedocs.io/en/latest/Usage.html)
 
