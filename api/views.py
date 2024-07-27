@@ -4,7 +4,12 @@ import csv
 import logging
 from datetime import datetime, timedelta
 
-from api.serializers import EnrichmentSerializer, FeedsResponseSerializer, FeedsSerializer, IOCSerializer
+from api.serializers import (
+    EnrichmentSerializer,
+    FeedsResponseSerializer,
+    FeedsSerializer,
+    IOCSerializer,
+)
 from certego_saas.apps.auth.backend import CookieTokenAuthentication
 from certego_saas.ext.helpers import parse_humanized_range
 from certego_saas.ext.pagination import CustomPageNumberPagination
@@ -17,7 +22,12 @@ from threatpot.consts import FEEDS_LICENSE, GET, PAYLOAD_REQUEST, SCANNER
 from threatpot.models import IOC, GeneralHoneypot, Statistics, viewType
 from rest_framework import serializers as rfs
 from rest_framework import status, viewsets
-from rest_framework.decorators import action, api_view, authentication_classes, permission_classes
+from rest_framework.decorators import (
+    action,
+    api_view,
+    authentication_classes,
+    permission_classes,
+)
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -60,7 +70,14 @@ def get_queryset(request, feed_type, attack_type, age, format_):
     source = str(request.user)
     logger.info(f"request from {source}. Feed type: {feed_type}, attack_type: {attack_type}, Age: {age}, format: {format_}")
 
-    serializer = FeedsSerializer(data={"feed_type": feed_type, "attack_type": attack_type, "age": age, "format": format_})
+    serializer = FeedsSerializer(
+        data={
+            "feed_type": feed_type,
+            "attack_type": attack_type,
+            "age": age,
+            "format": format_,
+        }
+    )
     serializer.is_valid(raise_exception=True)
 
     ordering = request.query_params.get("ordering")
