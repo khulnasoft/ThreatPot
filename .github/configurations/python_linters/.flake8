@@ -6,6 +6,7 @@ ignore =
     E121, # indentation rules
     E125,
     E203, # Colons should not have any space before them.
+    E231,
     E402, # module level import not at top of file
     E501, # line too long, ignored because it could block us on pre-commit hooks
     F401, # gives problems with wildcard import, init and similars

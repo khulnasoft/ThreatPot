@@ -4,12 +4,7 @@ import csv
 import logging
 from datetime import datetime, timedelta
 
-from api.serializers import (
-    EnrichmentSerializer,
-    FeedsResponseSerializer,
-    FeedsSerializer,
-    IOCSerializer,
-)
+from api.serializers import EnrichmentSerializer, FeedsResponseSerializer, FeedsSerializer, IOCSerializer
 from certego_saas.apps.auth.backend import CookieTokenAuthentication
 from certego_saas.ext.helpers import parse_humanized_range
 from certego_saas.ext.pagination import CustomPageNumberPagination
@@ -18,18 +13,16 @@ from django.db.models.functions import Trunc
 from django.http import HttpResponse, HttpResponseServerError, StreamingHttpResponse
 from drf_spectacular.utils import extend_schema as add_docs
 from drf_spectacular.utils import inline_serializer
-from threatpot.consts import FEEDS_LICENSE, GET, PAYLOAD_REQUEST, SCANNER
-from threatpot.models import IOC, GeneralHoneypot, Statistics, viewType
 from rest_framework import serializers as rfs
 from rest_framework import status, viewsets
-from rest_framework.decorators import (
-    action,
-    api_view,
-    authentication_classes,
-    permission_classes,
-)
+from rest_framework.decorators import action
+from rest_framework.decorators import api_view
+from rest_framework.decorators import authentication_classes
+from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from threatpot.consts import FEEDS_LICENSE, GET, PAYLOAD_REQUEST, SCANNER
+from threatpot.models import IOC, GeneralHoneypot, Statistics, viewType
 
 logger = logging.getLogger(__name__)
 

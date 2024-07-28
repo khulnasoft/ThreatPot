@@ -22,8 +22,8 @@ directives.register_directive("code", CodeBlock)
 # -- Project information -----------------------------------------------------
 
 project = "ThreatPot"
-copyright = "2021, The Honeynet Project"
-author = "Matteo Lodi"
+copyright = "2024 KhulnaSoft Ltd."
+author = "KhulnaSoft Ltd"
 
 
 # -- General configuration ---------------------------------------------------

@@ -86,6 +86,6 @@ ThreatPot provides an easy-to-query API to get the information available in GB r
 https://<threatpot_site>/api/enrichment?query=<observable>
 ```
 
-This "Enrichment" API is protected through authentication. Please reach out [Matteo Lodi](https://twitter.com/khulnasoft) or another member of [The Honeynet Project](https://twitter.com/ProjectHoneynet) if you are interested in gain access to this API.
+This "Enrichment" API is protected through authentication. Please reach out [KhulnaSoft Ltd](https://twitter.com/khulnasoft) or another member of [The Honeynet Project](https://twitter.com/ProjectHoneynet) if you are interested in gain access to this API.
 
 If you would like to leverage this API without the need of writing even a line of code and together with a lot of other awesome tools, consider using [ThreatMatrix](https://github.com/khulnasoft/ThreatMatrix).
