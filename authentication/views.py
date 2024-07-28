@@ -10,23 +10,15 @@ from django.conf import settings
 from django.contrib.auth import get_user_model, login
 from django.core.cache import cache
 from durin import views as durin_views
+from rest_framework import status
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 from threatpot.consts import GET
 from threatpot.enums import FrontendPage
 from threatpot.settings import AUTH_USER_MODEL
-from rest_framework import status
-from rest_framework.decorators import (
-    api_view,
-    authentication_classes,
-    permission_classes,
-)
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
 
-from .serializers import (
-    EmailVerificationSerializer,
-    LoginSerializer,
-    RegistrationSerializer,
-)
+from .serializers import EmailVerificationSerializer, LoginSerializer, RegistrationSerializer
 
 logger = logging.getLogger(__name__)
 

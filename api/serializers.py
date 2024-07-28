@@ -1,9 +1,9 @@
 import logging
 import re
 
+from rest_framework import serializers
 from threatpot.consts import REGEX_DOMAIN, REGEX_IP
 from threatpot.models import IOC, GeneralHoneypot
-from rest_framework import serializers
 
 logger = logging.getLogger(__name__)
 

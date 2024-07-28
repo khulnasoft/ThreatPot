@@ -1,12 +1,6 @@
 # This file is a part of ThreatPot https://github.com/khulnasoft/ThreatPot
 # See the file 'LICENSE' for copying permission.
-from api.views import (
-    StatisticsViewSet,
-    enrichment_view,
-    feeds,
-    feeds_pagination,
-    general_honeypot_list,
-)
+from api.views import StatisticsViewSet, enrichment_view, feeds, feeds_pagination, general_honeypot_list
 from django.urls import include, path
 from rest_framework import routers
 
