@@ -15,6 +15,7 @@ from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers as rfs
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from slack_sdk.errors import SlackApiError
+# Inside the function or class where REGEX_PASSWORD is used:
 from threatpot.consts import REGEX_PASSWORD
 
 from .models import UserProfile
