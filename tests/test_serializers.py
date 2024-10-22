@@ -3,9 +3,9 @@ from itertools import product
 
 from api.serializers import FeedsResponseSerializer, FeedsSerializer
 from django.test import TestCase
+from rest_framework.serializers import ValidationError
 from threatpot.consts import PAYLOAD_REQUEST, SCANNER
 from threatpot.models import GeneralHoneypot
-from rest_framework.serializers import ValidationError
 
 
 class FeedsSerializersTestCase(TestCase):

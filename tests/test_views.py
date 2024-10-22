@@ -1,6 +1,6 @@
+from rest_framework.test import APIClient
 from threatpot.consts import FEEDS_LICENSE
 from threatpot.models import GeneralHoneypot, Statistics, viewType
-from rest_framework.test import APIClient
 
 from . import CustomTestCase
 

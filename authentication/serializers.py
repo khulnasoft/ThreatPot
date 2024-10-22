@@ -12,10 +12,10 @@ from django.contrib.auth import password_validation
 from django.core.exceptions import ValidationError
 from django.db import DatabaseError, transaction
 from django.utils.translation import gettext_lazy as _
-from threatpot.consts import REGEX_PASSWORD
 from rest_framework import serializers as rfs
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from slack_sdk.errors import SlackApiError
+from threatpot.consts import REGEX_PASSWORD
 
 from .models import UserProfile
 
