@@ -25,4 +25,4 @@ class MonitorHoneypots(Cronjob):
 
             hits = search[:10].execute()
             if not hits:
-                self.log.warning(f"no logs available for the Honeypot {honeypot_to_monitor.name}." f" Something could be wrong in the TPOT cluster")
+                self.log.warning(f"no logs available for the Honeypot {honeypot_to_monitor.name}." f" Something could be wrong in the CyberPot cluster")
