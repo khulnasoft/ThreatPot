@@ -1,0 +1,12 @@
+services:
+  uwsgi:
+    image: khulnasoft/threatpot:stag
+
+  nginx:
+    image: khulnasoft/threatpot_nginx:stag
+
+  celery_beat:
+    image: khulnasoft/threatpot:stag
+
+  celery_worker_default:
+    image: khulnasoft/threatpot:stag

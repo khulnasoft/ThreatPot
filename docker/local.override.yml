@@ -1,0 +1,32 @@
+services:
+  uwsgi:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        WATCHMAN: "true"
+    image: khulnasoft/threatpot:test
+    volumes:
+      - ../:/opt/deploy/threatpot
+    environment:
+      - DEBUG=True
+      - DJANGO_TEST_SERVER=True
+      - DJANGO_WATCHMAN_TIMEOUT=20
+
+  nginx:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile_nginx
+    image: khulnasoft/threatpot_nginx:test
+    volumes:
+      - ../configuration/nginx/django_server.conf:/etc/nginx/conf.d/default.conf
+
+  celery_beat:
+    image: khulnasoft/threatpot:test
+    volumes:
+      - ../:/opt/deploy/threatpot
+
+  celery_worker_default:
+    image: khulnasoft/threatpot:test
+    volumes:
+      - ../:/opt/deploy/threatpot

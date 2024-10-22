@@ -1,0 +1,92 @@
+x-no-healthcheck: &no-healthcheck
+  healthcheck:
+    disable: true
+
+services:
+  postgres:
+    image: library/postgres:13-alpine
+    container_name: threatpot_postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./env_file_postgres
+
+  uwsgi:
+    image: khulnasoft/threatpot:prod
+    container_name: threatpot_uwsgi
+    volumes:
+      - ../configuration/uwsgi/threatpot.ini:/etc/uwsgi/sites/threatpot.ini
+      - generic_logs:/var/log/threatpot
+      - static_content:/opt/deploy/threatpot/static
+    entrypoint:
+      - ./docker/entrypoint_uwsgi.sh
+    expose:
+      - "8001"
+      - "1717"
+    env_file:
+      - env_file
+    depends_on:
+      - postgres
+
+  nginx:
+    image: khulnasoft/threatpot_nginx:prod
+    container_name: threatpot_nginx
+    restart: unless-stopped
+    volumes:
+      - ../configuration/nginx/http.conf:/etc/nginx/conf.d/default.conf
+      - ../configuration/nginx/errors.conf:/etc/nginx/errors.conf
+      - ../configuration/nginx/locations.conf:/etc/nginx/locations.conf
+      - nginx_logs:/var/log/nginx
+      - static_content:/var/www/static
+    ports:
+      - "80:80"
+    depends_on:
+      - uwsgi
+
+  rabbitmq:
+    image: library/rabbitmq:3.12-alpine
+    container_name: threatpot_rabbitmq
+    volumes:
+      - ../configuration/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+    logging:
+      driver: none
+    depends_on:
+      - postgres
+
+  celery_beat:
+    image: khulnasoft/threatpot:prod
+    container_name: threatpot_celery_beat
+    restart: unless-stopped
+    command: /usr/local/bin/celery -A threatpot.celery beat --uid www-data --gid www-data --pidfile= --schedule=/tmp/celerybeat-schedule
+    volumes:
+      - generic_logs:/var/log/threatpot
+    env_file:
+      - env_file
+    depends_on:
+      - rabbitmq
+      - postgres
+      - uwsgi
+    <<: *no-healthcheck
+
+  celery_worker_default:
+    image: khulnasoft/threatpot:prod
+    container_name: threatpot_celery_worker_default
+    restart: unless-stopped
+    stop_grace_period: 3m
+    command: /usr/local/bin/celery -A threatpot.celery worker -n worker_default --uid www-data --gid www-data --time-limit=10000 --pidfile= -Ofair -Q default -E -c 1
+    volumes:
+      - generic_logs:/var/log/threatpot
+    env_file:
+      - env_file
+    depends_on:
+      - rabbitmq
+      - postgres
+      - uwsgi
+    <<: *no-healthcheck
+
+
+volumes:
+  postgres_data:
+  nginx_logs:
+  generic_logs:
+  static_content:
