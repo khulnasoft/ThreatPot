@@ -50,8 +50,6 @@ app.conf.update(
 def setup_loggers(*args, **kwargs):
     from logging.config import dictConfig
 
-    from django.conf import settings
-
     dictConfig(settings.LOGGING)
 
 
