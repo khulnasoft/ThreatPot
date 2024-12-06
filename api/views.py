@@ -187,8 +187,7 @@ def feeds_response(request, iocs, feed_type, format_, dict_only=False):
         text = "\n".join(text_lines)
         return HttpResponse(text, content_type="text/plain")
     elif format_ == "csv":
-        rows = []
-        rows.append([license_text])
+        rows = [[license_text]]
         for ioc in iocs:
             rows.append([ioc.name])
         pseudo_buffer = Echo()
