@@ -13,7 +13,7 @@ RUN npm install
 RUN PUBLIC_URL=/static/reactapp/ npm run build
 
 # Stage 2: Backend
-FROM python:3.13.0-alpine3.20
+FROM python:3.13.3-alpine3.20
 
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_SETTINGS_MODULE threatpot.settings
